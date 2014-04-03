@@ -77,7 +77,7 @@
 		2AFD04E318ECE55F006D41DA /* hung-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hung-1.png"; sourceTree = "<group>"; };
 		2AFD04E518ECE55F006D41DA /* Hangman.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hangman.m; sourceTree = "<group>"; };
 		2AFD04E618ECE55F006D41DA /* Hangman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hangman.h; sourceTree = "<group>"; };
-		2AFD04E718ECE55F006D41DA /* HangmanController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HangmanController.h; sourceTree = "<group>"; };
+		2AFD04E718ECE55F006D41DA /* HangmanController.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = HangmanController.h; sourceTree = "<group>"; tabWidth = 2; };
 		2AFD04E818ECE55F006D41DA /* HangmanController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HangmanController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -538,6 +538,7 @@
 				2AFD04C818ECDEE5006D41DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2AFD04C918ECDEE5006D41DA /* Build configuration list for PBXNativeTarget "hangmanTests" */ = {
 			isa = XCConfigurationList;
@@ -546,6 +547,7 @@
 				2AFD04CB18ECDEE5006D41DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

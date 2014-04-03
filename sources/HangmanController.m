@@ -60,13 +60,14 @@
 // Game methods:
 
 -(void)connectUI{
-    // insert self between the window contentView and all the subviews.
-    NSWindow* window=[image window];
-    NSView* content=[window contentView];
-    [self setFrame:[content frame]];
-    NSArray* subviews=[content subviews];
-    [content setSubviews:[NSArray arrayWithObject:self]];
-    [self setSubviews:subviews];
+    [[self window] makeKeyAndOrderFront:self];
+    // // insert self between the window contentView and all the subviews.
+    // NSWindow* window=[image window];
+    // NSView* content=[window contentView];
+    // [self setFrame:[content frame]];
+    // NSArray* subviews=[content subviews];
+    // [content setSubviews:[NSArray arrayWithObject:self]];
+    // [self setSubviews:subviews];
     // when the letter buttons are not in matrix (but in a simple view), update their target/action.
     if(letters!=nil){
         NSArray* letterButtons=[letters subviews];
@@ -180,6 +181,8 @@
 
 
 -(void)processLetter:(NSString*)letter{
+    if(finished){
+        return;}
     NSInteger result=[hangman tryLetter:letter];
     switch(result){
       case Hangman_wins:
@@ -212,8 +215,6 @@
 
 
 -(IBAction)selectLetter:(id)sender{
-    if(finished){
-        return;}
     NSString* letter=[self getLetterFromSender:sender];
     [self processLetter:letter];}
     
@@ -234,10 +235,17 @@
 
 // NSResponder methods:
 
+-(BOOL)acceptsFirstResponder{
+    return YES;}
+
 -(void)keyDown:(NSEvent*)event{
     NSString* letter=[[event characters] lowercaseString];
     if(([letter length]==1) && [self letterIsInAlphabet:letter]){
-        [self processLetter:letter];}}
+        [self processLetter:letter];
+    }else if([letter isEqualToString:@"\n"]||[letter isEqualToString:@"\r"]){
+        [self initializeGame];
+    }else{
+        [super keyDown:event];}}
 
 @end
 //// THE END ////
