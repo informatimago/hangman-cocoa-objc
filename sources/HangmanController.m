@@ -192,7 +192,7 @@
     if([sender isKindOfClass:[NSMatrix class]]) {
         return [[sender selectedCell] title];
     }else{
-        return [sender stringValue];}}
+        return [sender title];}}
 
 
 -(void)processLetter:(NSString*)letter{
