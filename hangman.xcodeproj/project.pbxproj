@@ -45,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A8A0B3D18ED031B00A86656 /* hangman.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = hangman.entitlements; sourceTree = "<group>"; };
 		2AFD049518ECDEE3006D41DA /* hangman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hangman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AFD049818ECDEE3006D41DA /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		2AFD049B18ECDEE3006D41DA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -144,6 +145,7 @@
 		2AFD049E18ECDEE3006D41DA /* hangman */ = {
 			isa = PBXGroup;
 			children = (
+				2A8A0B3D18ED031B00A86656 /* hangman.entitlements */,
 				2AFD04D618ECE55F006D41DA /* images */,
 				2AFD04E418ECE55F006D41DA /* sources */,
 				2AFD04AD18ECDEE4006D41DA /* MainMenu.xib */,
@@ -261,6 +263,14 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = informatimago;
 				TargetAttributes = {
+					2AFD049418ECDEE3006D41DA = {
+						DevelopmentTeam = UR2VZT8R5G;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
+					};
 					2AFD04B518ECDEE5006D41DA = {
 						TestTargetID = 2AFD049418ECDEE3006D41DA;
 					};
@@ -457,6 +467,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "hangman/hangman-Prefix.pch";
@@ -470,6 +481,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "hangman/hangman-Prefix.pch";
