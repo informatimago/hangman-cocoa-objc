@@ -35,6 +35,11 @@
 #define Hangman_h
 #include <Foundation/Foundation.h>
 
+#if __has_feature(objc_arc)
+#define RETAIN(x) (x)
+#define RELEASE(x) (x)
+#define AUTORELEASE(x) (x)
+#endif
 
 typedef enum {
     Hangman_wins,

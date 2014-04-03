@@ -32,28 +32,42 @@
 //    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //****************************************************************************
 #include "HangmanController.h"
-#include <stdlib.h> // for rand().
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 
 @implementation HangmanController
 
-
 -(id)initWithFrame:(NSRect)frame {
     if((self=[super initWithFrame:frame])){
-        words=[NSArray arrayWithObjects:@"along", @"and", @"andor", @"any", @"buffer", @"but", @"can",
-                       @"copy", @"create", @"details", @"distributed", @"either", @"enter",
-                       @"evaluation", @"even", @"file", @"fitness", @"for", @"foundation",
-                       @"free", @"general", @"gnu", @"have", @"hope", @"implied", @"later",
-                       @"license", @"lisp", @"merchantability", @"modify", @"more", @"not",
-                       @"notes", @"option", @"own", @"particular", @"program", @"public",
-                       @"published", @"purpose", @"received", @"redistribute", @"save",
-                       @"see", @"should", @"software", @"terms", @"text", @"that", @"the",
-                       @"then", @"this", @"under", @"useful", @"version", @"visit", @"want",
-                       @"warranty", @"will", @"with", @"without", @"you", @"your",nil];
+        words=RETAIN(([NSArray arrayWithObjects:@"along", @"and", @"andor", @"any", @"buffer", @"but", @"can",
+                               @"copy", @"create", @"details", @"distributed", @"either", @"enter",
+                               @"evaluation", @"even", @"file", @"fitness", @"for", @"foundation",
+                               @"free", @"general", @"gnu", @"have", @"hope", @"implied", @"later",
+                               @"license", @"lisp", @"merchantability", @"modify", @"more", @"not",
+                               @"notes", @"option", @"own", @"particular", @"program", @"public",
+                               @"published", @"purpose", @"received", @"redistribute", @"save",
+                               @"see", @"should", @"software", @"terms", @"text", @"that", @"the",
+                               @"then", @"this", @"under", @"useful", @"version", @"visit", @"want",
+                               @"warranty", @"will", @"with", @"without", @"you", @"your",nil]));
         loadedWords=nil;}
     return(self);}
 
 
+-(void)initializeRandom{
+    int fd=open("/dev/random",O_RDONLY,0);
+    if(fd>=0){
+        int seed;
+        ssize_t res=read(fd,&seed,sizeof(seed));
+        if(res==sizeof(seed)){
+            srand(seed);}
+        close(fd);}}
+
+
 -(void)awakeFromNib{
+    [self initializeRandom];
     [self connectUI];}
 
 
@@ -151,6 +165,7 @@
 -(void)setHangImage:(NSInteger)index{
     if((0<=index)&&(index<=[self maximumErrorCount])){
         NSImage* hungImage=[NSImage imageNamed:[NSString stringWithFormat:@"hung-%ld",(long)index]];
+        NSLog(@"name=%@ hungImage=%@",[NSString stringWithFormat:@"hung-%ld",(long)index],hungImage);
         [image setImage:hungImage];}}
 
 
@@ -177,7 +192,7 @@
     if([sender isKindOfClass:[NSMatrix class]]) {
         return [[sender selectedCell] title];
     }else{
-        return [sender stringValue];}}
+        return [sender title];}}
 
 
 -(void)processLetter:(NSString*)letter{

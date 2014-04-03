@@ -1,5 +1,5 @@
 {
-    APPLICATIONICON = "icon.png";
+    APPLICATIONICON = "icon.jpeg";
     "APP_DOCUMENT_BASED" = NO;
     "APP_TYPE" = GORM;
     "BUILDER_TARGETS" = (
@@ -26,19 +26,19 @@
 	"HangmanController.h"
     );
     IMAGES = (
-	"hung-0.png",
-	"hung-1.png",
-	"hung-10.png",
-	"hung-11.png",
-	"hung-2.png",
-	"hung-3.png",
-	"hung-4.png",
-	"hung-5.png",
-	"hung-6.png",
-	"hung-7.png",
-	"hung-8.png",
-	"hung-9.png",
-	"icon.png"
+	"hung-0.jpeg",
+	"hung-1.jpeg",
+	"hung-10.jpeg",
+	"hung-11.jpeg",
+	"hung-2.jpeg",
+	"hung-3.jpeg",
+	"hung-4.jpeg",
+	"hung-5.jpeg",
+	"hung-6.jpeg",
+	"hung-7.jpeg",
+	"hung-8.jpeg",
+	"hung-9.jpeg",
+	"icon.jpeg"
     );
     INSTALLDIR = "$(HOME)/GNUstep";
     INTERFACES = (

@@ -32,7 +32,7 @@
 	    message,
 	    guessed
 	);
-	Super = NSObject;
+	Super = NSView;
     };
     WindW = {
 	Actions = (
