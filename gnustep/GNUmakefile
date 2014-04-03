@@ -16,7 +16,7 @@ include $(GNUSTEP_MAKEFILES)/common.make
 VERSION = 1.0
 PACKAGE_NAME = hangman
 APP_NAME = hangman
-hangman_APPLICATION_ICON = icon.png
+hangman_APPLICATION_ICON = icon.jpeg
 
 
 #
@@ -27,19 +27,19 @@ Resources/Main.gsmarkup \
 Resources/MainMenu-GNUstep.gsmarkup \
 Resources/MainMenu-OSX.gsmarkup \
 Resources/hangman.gorm \
-Resources/hung-0.png \
-Resources/hung-1.png \
-Resources/hung-10.png \
-Resources/hung-11.png \
-Resources/hung-2.png \
-Resources/hung-3.png \
-Resources/hung-4.png \
-Resources/hung-5.png \
-Resources/hung-6.png \
-Resources/hung-7.png \
-Resources/hung-8.png \
-Resources/hung-9.png \
-Resources/icon.png 
+Resources/hung-0.jpeg \
+Resources/hung-1.jpeg \
+Resources/hung-10.jpeg \
+Resources/hung-11.jpeg \
+Resources/hung-2.jpeg \
+Resources/hung-3.jpeg \
+Resources/hung-4.jpeg \
+Resources/hung-5.jpeg \
+Resources/hung-6.jpeg \
+Resources/hung-7.jpeg \
+Resources/hung-8.jpeg \
+Resources/hung-9.jpeg \
+Resources/icon.jpeg 
 
 
 #

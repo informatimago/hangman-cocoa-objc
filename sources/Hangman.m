@@ -38,12 +38,12 @@
 
 -(void)initializeFound{
     NSInteger length=[word length];
-    found=[NSMutableArray arrayWithCapacity:length];
+    found=RETAIN(([NSMutableArray arrayWithCapacity:length]));
     for(NSInteger i=0;i<length;i++){
         [found addObject:no];
     }
-    [found setObject:yes atIndexedSubscript:0];
-    [found setObject:yes atIndexedSubscript:[found count]-1];
+    [found replaceObjectAtIndex:0 withObject:yes];
+    [found replaceObjectAtIndex:([found count]-1) withObject:yes];
 }
 
 -(id)initWithWord:(NSString*)aWord maximumErrorCount:(NSInteger)aMaximumErrorCount
@@ -51,12 +51,12 @@
     if((self=[super init])) {
         missingLetter=@".";
         alphabet=@"abcdefghijklmnopqrstuvwxyz";
-        yes=[NSNumber numberWithBool:YES];
-        no=[NSNumber numberWithBool:NO];
+        yes=RETAIN(([NSNumber numberWithBool:YES]));
+        no=RETAIN(([NSNumber numberWithBool:NO]));
 
-        word=[aWord lowercaseString];
+        word=RETAIN(([aWord lowercaseString]));
         [self initializeFound];
-        triedLetters=[NSMutableString stringWithCapacity:[alphabet length]];
+        triedLetters=RETAIN(([NSMutableString stringWithCapacity:[alphabet length]]));
         currentErrorCount=0;
         maximumErrorCount=aMaximumErrorCount;
     }
@@ -103,7 +103,7 @@
     r=[word rangeOfString:letter];
     while(r.length>0){
         error=NO;
-        [found setObject:yes atIndexedSubscript:r.location];
+        [found replaceObjectAtIndex:r.location withObject:yes];
         NSInteger start=r.location+r.length;
         NSRange searchRange=NSMakeRange(start,length-start);
         r=[word rangeOfString:letter options:NSCaseInsensitiveSearch range:searchRange];
