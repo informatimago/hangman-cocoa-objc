@@ -1,0 +1,81 @@
+.. comment: -*- mode:rst; coding:utf-8 -*-
+
+
+The Hangman game, for GNUstep (ProjectBuilder, Gorm) and MacOSX (Xcode).
+==========================================================================================
+
+License
+--------------------
+
+This program is distributed under the AGPL3, The GNU Affero General
+Public License version 3.
+
+Copyright 2014 Pascal J. Bourguignon
+
+
+Description 
+--------------------
+
+Gorm and Interface Builder are used to set up the GUI objects of the
+application.  Gorm and Interface Builders have opaque files.  You'd
+have to explore the objects and their connections in those
+applications.
+
+But basically, there's a HangmanController, which is an invisible
+NSView, subclass of NSResponder in the NSWindow, along with the other
+views.  The HangmanController has IBOutlets, links to other GUI
+objects: the image NSImageView, the letters NSMatrix or NSView, the
+message and guessed NSTextFields.  It also has two IBActions:
+selectLetter: and newGame: ; the NSMatrix, or the letter NSButtons
+have this HangmanController as a target, and send the selectLetter:
+action message.  
+
+The NSButton "New Game" has the HangmanController as target, and sends
+the newGame: action message.
+
+The HangmanController sends message to the Hangman game object, and
+depending on the results, updates the UI objects image, message and
+guessed.
+
+In Gorm, it's not possible (yet) to setup a NSMatrix, so I've just put
+26 NSButton in a NSView, and the -connectUI updates their
+target/action when loaded.
+
+The method -awakeFromNib is called when the objects are deserialized
+when loading the gorm or nib files.  
+
+The HangmanController is also the NSApplication delegate, so it
+receives the applicationDidFinishLaunching:
+applicationShouldTerminate: and applicationWillTerminate: messages.
+
+It is also the initialFirstResponder of the NSWindow so when a key is
+typed, it receives the keyDown: message.
+
+All those relationships are set up in Gorm or in Interface Builder.
+
+One could instead write the code to create all those objects and set
+up all those connections, just like I did partially in connectUI.
+
+For an important application, I would write the UI creation code (or
+generate it from lisp).  But for quick & dirty programs, it's faster
+to use the Interface Builder.  Even if it makes you do duplicate work.
+
+
+Compilation on GNUstep
+----------------------------------------
+
+:: 
+
+   cd gnustep ; make && hangman.app/hangman
+
+
+Compilation on MacOSX
+----------------------------------------
+
+:: 
+
+   open hangman.xcodeproj # and type Command-R
+
+
+
+.. comment: THE END
