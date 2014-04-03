@@ -102,7 +102,9 @@
     BOOL error=YES;
     r=[word rangeOfString:letter];
     while(r.length>0){
-        error=NO;
+        if(![[found objectAtIndex:r.location]boolValue]){
+            error=NO;  
+        } 
         [found replaceObjectAtIndex:r.location withObject:yes];
         NSInteger start=r.location+r.length;
         NSRange searchRange=NSMakeRange(start,length-start);

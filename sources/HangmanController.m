@@ -165,7 +165,6 @@
 -(void)setHangImage:(NSInteger)index{
     if((0<=index)&&(index<=[self maximumErrorCount])){
         NSImage* hungImage=[NSImage imageNamed:[NSString stringWithFormat:@"hung-%ld",(long)index]];
-        NSLog(@"name=%@ hungImage=%@",[NSString stringWithFormat:@"hung-%ld",(long)index],hungImage);
         [image setImage:hungImage];}}
 
 
