@@ -1,6 +1,9 @@
-obj
 *.[oa]
-*~
+*.app
 *.backup
-._*
+*.fas
 *.xcuserdatad
+*~
+._*
+obj
+pjb.project
