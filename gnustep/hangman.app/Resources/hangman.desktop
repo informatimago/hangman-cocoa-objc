@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Categories=X-GNUstep;
+Name=hangman
+Comment=The classical hang man game.
+Icon=/usr/local/lib/GNUstep/Applications/hangman.app/Resources/icon.png
+Exec=/usr/bin/openapp hangman
+FilePattern=hangman.app;hangman;

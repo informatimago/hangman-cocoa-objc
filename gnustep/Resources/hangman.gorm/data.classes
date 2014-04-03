@@ -1,0 +1,46 @@
+{
+    "## Comment" = "Do NOT change this file, Gorm maintains it";
+    AppController = {
+	Actions = (
+	    "showPrefPanel:"
+	);
+	Outlets = (
+	);
+	Super = NSObject;
+    };
+    FirstResponder = {
+	Actions = (
+	    "anotherWord:",
+	    "controler:",
+	    "newGame:",
+	    "orderFrontFontPanel:",
+	    "selectLetter:",
+	    "showPrefPanel:",
+	    "tryALetter:",
+	    "willQuit:"
+	);
+	Super = NSObject;
+    };
+    HangmanController = {
+	Actions = (
+	    "selectLetter:",
+	    "newGame:"
+	);
+	Outlets = (
+	    image,
+	    letters,
+	    message,
+	    guessed
+	);
+	Super = NSObject;
+    };
+    WindW = {
+	Actions = (
+	    "controler:"
+	);
+	Outlets = (
+	    controler
+	);
+	Super = NSObject;
+    };
+}

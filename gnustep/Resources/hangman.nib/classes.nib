@@ -1,0 +1,54 @@
+{
+    IBClasses = (
+	{
+	    ACTIONS = {
+		newGame = id;
+		selectLetter = id;
+	    };
+	    CLASS = HangmanController;
+	    LANGUAGE = ObjC;
+	    OUTLETS = {
+		guessed = id;
+		image = id;
+		letters = id;
+		message = id;
+	    };
+	    SUPERCLASS = NSObject;
+	},
+	{
+	    ACTIONS = {
+		showPrefPanel = id;
+	    };
+	    CLASS = AppController;
+	    LANGUAGE = ObjC;
+	    SUPERCLASS = NSObject;
+	},
+	{
+	    ACTIONS = {
+		controler = id;
+	    };
+	    CLASS = WindW;
+	    LANGUAGE = ObjC;
+	    OUTLETS = {
+		controler = id;
+	    };
+	    SUPERCLASS = NSObject;
+	},
+	{
+	    ACTIONS = {
+		anotherWord = id;
+		controler = id;
+		newGame = id;
+		orderFrontFontPanel = id;
+		selectLetter = id;
+		showPrefPanel = id;
+		tryALetter = id;
+		willQuit = id;
+	    };
+	    CLASS = FirstResponder;
+	    LANGUAGE = ObjC;
+	    SUPERCLASS = NSObject;
+	}
+    );
+    IBVersion = 1;
+}
